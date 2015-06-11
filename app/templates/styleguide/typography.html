@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Typography | Style Guide
+{% endblock %}
+
+{% block content %}
+
+  <main id="content" role="main">
+  
+    <div class="text">
+
+      <h1 class="heading-xlarge">
+        <span class="heading-secondary">Land Registry style guide</span>
+        Typography
+      </h1>
+
+      <p>Some intro stuff</p>
+
+    </div>
+
+    <h2 class="heading-large">Examples</h2>
+
+    <div class="grid-row">
+      <div class="column-half">
+        <div class="example-view">
+          {% include "styleguide/snippets/typography/headings.html" %}
+        </div>
+      </div>
+      <div class="column-half">
+        <div class="example-code">
+<pre>{{ include_raw('styleguide/snippets/typography/headings.html') | escape }}</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-row">
+      <div class="column-half">
+        <div class="example-view">
+          {% include "styleguide/snippets/typography/headings-secondary.html" %}
+        </div>
+      </div>
+      <div class="column-half">
+        <div class="example-code">
+<pre>{{ include_raw('styleguide/snippets/typography/headings-secondary.html') | escape }}</pre>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+{% endblock %}
