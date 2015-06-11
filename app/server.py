@@ -27,7 +27,7 @@ assets.register('styleguide', sass)
 
 @app.route('/')
 def home():
-    return render_template('layout.html')
+    return render_template('styleguide/index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
