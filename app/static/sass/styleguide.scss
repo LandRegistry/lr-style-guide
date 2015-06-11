@@ -1,5 +1,31 @@
-@import 'grid_layout';
+// ==========================================================================
+// See /app/server.py for import path settings
+//
+// The 2 import paths are:
+//
+// static/govuk_frontend_toolkit/stylesheets/
+// static/sass/partials/
 
-main {
-  @extend %site-width-container;
-}
+// ==========================================================================
+// GOV.UK front end toolkit (all)
+// from: static/govuk_frontend_toolkit/stylesheets/
+@import 'colours';
+@import 'conditionals';
+@import 'css3';
+@import 'device-pixels';
+@import 'font_stack';
+@import 'grid_layout';
+@import 'measurements';
+@import 'shims';
+@import 'typography';
+@import 'url-helpers';
+@import 'design-patterns/alpha-beta';
+@import 'design-patterns/buttons';
+@import 'design-patterns/media-player';
+
+// ==========================================================================
+// Import styleguide partials
+// dependencies on GOV.UK front end toolkit
+// from: static/sass/partials/
+
+@import 'layout';

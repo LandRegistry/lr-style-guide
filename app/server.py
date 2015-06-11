@@ -7,12 +7,13 @@ import sass as libsass
 
 __dot = path.dirname(path.realpath(__file__))
 __toolkit_dir = path.join(__dot, 'static/govuk_frontend_toolkit/stylesheets/')
+__styleguide_dir = path.join(__dot, 'static/sass/partials/')
 
 def compile_sass(_in, out, **kw):
     out.write(
         libsass.compile(
             string=_in.read(),
-            include_paths=[__toolkit_dir]
+            include_paths=[__toolkit_dir, __styleguide_dir]
         )
     )
 
