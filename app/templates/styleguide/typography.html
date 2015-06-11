@@ -10,6 +10,8 @@
   
     <div class="text">
 
+      <p><a href="/">Home</a></p>
+
       <h1 class="heading-xlarge">
         <span class="heading-secondary">Land Registry style guide</span>
         Typography
@@ -17,9 +19,15 @@
 
       <p>Some intro stuff</p>
 
+      <ol>
+        <li>Headings</li>
+        <li>Paragraphs</li>
+        <li>Lists</li>
+      </ol>
+
     </div>
 
-    <h2 class="heading-large">Examples</h2>
+    <h2 class="heading-large">Headings</h2>
 
     <div class="grid-row">
       <div class="column-half">
@@ -43,6 +51,64 @@
       <div class="column-half">
         <div class="example-code">
 <pre>{{ include_raw('styleguide/snippets/typography/headings-secondary.html') | escape }}</pre>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="heading-large">Paragraphs</h2>
+
+    <div class="grid-row">
+      <div class="column-half">
+        <div class="example-view">
+          {% include "styleguide/snippets/typography/paragraphs.html" %}
+        </div>
+      </div>
+      <div class="column-half">
+        <div class="example-code">
+<pre>{{ include_raw('styleguide/snippets/typography/paragraphs.html') | escape }}</pre>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="heading-large">Lists</h2>
+
+    <div class="grid-row">
+      <div class="column-half">
+        <div class="example-view">
+          {% include "styleguide/snippets/typography/lists.html" %}
+        </div>
+      </div>
+      <div class="column-half">
+        <div class="example-code">
+<pre>{{ include_raw('styleguide/snippets/typography/lists.html') | escape }}</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-row">
+      <div class="column-half">
+        <div class="example-view">
+          {% include "styleguide/snippets/typography/lists-definition.html" %}
+        </div>
+      </div>
+      <div class="column-half">
+        <div class="example-code">
+<pre>{{ include_raw('styleguide/snippets/typography/lists-definition.html') | escape }}</pre>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="heading-large">Inline and miscellaneous elements</h2>
+
+    <div class="grid-row">
+      <div class="column-half">
+        <div class="example-view">
+          {% include "styleguide/snippets/typography/inline.html" %}
+        </div>
+      </div>
+      <div class="column-half">
+        <div class="example-code">
+<pre>{{ include_raw('styleguide/snippets/typography/inline.html') | escape }}</pre>
         </div>
       </div>
     </div>

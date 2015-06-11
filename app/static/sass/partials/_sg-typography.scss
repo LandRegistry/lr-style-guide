@@ -185,4 +185,45 @@ code {
   padding: 3px 7px;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
 
+strong, b {
+  font-weight: bold;
+}
+
+em, i {
+  font-style: italic;
+}
+
+small {
+  @include core-16;
+}
+
+del {
+  text-decoration: none;
+  background-color: $mellow-red-25;
+}
+
+ins {
+  text-decoration: none;
+  background-color: $grass-green-25;
+}
+
+abbr {
+  border-bottom: 1px dotted;
+}
+
+// Footnotes
+.footnote {
+  @include core-16;
+  color: $grey-1;
+}
+
+// Roman numerals
+.roman {
+  font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+  font-style: normal;
+}
