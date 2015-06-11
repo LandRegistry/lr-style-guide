@@ -6,6 +6,7 @@
 // static/govuk_frontend_toolkit/stylesheets/
 // static/sass/partials/
 
+
 // ==========================================================================
 // GOV.UK front end toolkit (all)
 // from: static/govuk_frontend_toolkit/stylesheets/
@@ -28,4 +29,15 @@
 // dependencies on GOV.UK front end toolkit
 // from: static/sass/partials/
 
-@import 'layout';
+@import 'sg-helpers';
+@import 'sg-reset';
+
+@import 'sg-layout';
+@import 'sg-typography';
+@import 'sg-lists';
+@import 'sg-details';
+@import 'sg-tables';
+@import 'sg-forms';
+@import 'sg-buttons';
+@import 'sg-panels';
+@import 'sg-icons';

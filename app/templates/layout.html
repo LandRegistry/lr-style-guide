@@ -1,9 +1,13 @@
 {% set asset_path = '/static/govuk_template/' %}
+{% set homepage_url = '/' %}
 
 {% extends "govuk_template.html" %}
 
 {% block head %}
   {% assets "styleguide" %}
+    <link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css" />
+  {% endassets %}
+  {% assets "styleguide-examples" %}
     <link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css" />
   {% endassets %}
 {% endblock %}

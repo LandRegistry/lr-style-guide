@@ -25,6 +25,10 @@ sass = Bundle('sass/styleguide.scss',
               filters=(compile_sass,), output='css/styleguide.css')
 assets.register('styleguide', sass)
 
+examples = Bundle('sass/styleguide-examples.scss',
+              filters=(compile_sass,), output='css/styleguide-examples.css')
+assets.register('styleguide-examples', examples)
+
 
 @app.route('/')
 def home():
