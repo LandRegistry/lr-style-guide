@@ -61,3 +61,7 @@ target/
 
 # Local virtualenv
 virtual-environment
+
+# Webassets cache
+app/static/.webassets-cache
+

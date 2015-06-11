@@ -1,7 +1,20 @@
-{% set asset_path = './static/govuk_template/' %}
+{% set asset_path = '/static/govuk_template/' %}
 
 {% extends "govuk_template.html" %}
 
+{% block head %}
+
+  {% assets "styleguide" %}
+    <link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css" />
+  {% endassets %}
+
+  
+{% endblock %}
+
 {% block content %}
-  Hello world
+  <main role="main" id="content">
+
+    HELLO!
+
+  </main>
 {% endblock %}
