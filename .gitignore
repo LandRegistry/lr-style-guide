@@ -55,3 +55,9 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Apple stuff
+.DS_Store
+
+# Local virtualenv
+virtual-environment
