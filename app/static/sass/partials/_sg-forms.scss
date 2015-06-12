@@ -1,6 +1,11 @@
 // Forms
 // ==========================================================================
 
+.form {
+  @extend %contain-floats;
+  width: 100%;
+}
+
 // Fieldset is used to group more than one .form-group
 fieldset {
   @extend %contain-floats;
@@ -74,6 +79,10 @@ legend {
   .form-label-bold {
     padding-bottom: 7px;
   }
+}
+legend.form-label-bold,
+legend.form-label {
+  margin-bottom: 7px;
 }
 
 // Remove spacing when error messages are shown

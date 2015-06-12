@@ -45,6 +45,10 @@ def typography():
 def layout():
     return render_template('styleguide/layout.html')
 
+@app.route('/forms')
+def forms():
+    return render_template('styleguide/forms.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
     # Bind to PORT if defined, otherwise default to 5000.

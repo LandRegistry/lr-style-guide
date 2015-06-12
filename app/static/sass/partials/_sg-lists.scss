@@ -25,6 +25,13 @@ ol {
   }
 }
 
+// "Plain" list
+ol.list-plain,
+ul.list-plain {
+  list-style: none;
+  padding-left: 0;
+}
+
 // list items
 ul li,
 ol li {

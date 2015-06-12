@@ -1,0 +1,144 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Forms | Style Guide
+{% endblock %}
+
+{% block content %}
+
+  <main id="content" role="main">
+  
+    <div class="text">
+
+      <p><a href="/">Home</a></p>
+
+      <h1 class="heading-xlarge">
+        <span class="heading-secondary">Land Registry style guide</span>
+        Forms
+      </h1>
+
+    </div>
+
+    <h2 class="heading-large">Basic field types</h2>
+
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <div class="example-view">
+          {% include "styleguide/snippets/forms/textfield.html" %}
+        </div>
+      </div>
+      <div class="column-third">
+        <div class="example-code">
+<pre><code class="language-markup">{{ include_raw('styleguide/snippets/forms/textfield.html') | escape }}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <div class="example-view">
+          {% include "styleguide/snippets/forms/textarea.html" %}
+        </div>
+      </div>
+      <div class="column-third">
+        <div class="example-code">
+<pre><code class="language-markup">{{ include_raw('styleguide/snippets/forms/textarea.html') | escape }}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <div class="example-view">
+          {% include "styleguide/snippets/forms/radio.html" %}
+        </div>
+      </div>
+      <div class="column-third">
+        <div class="example-code">
+<pre><code class="language-markup">{{ include_raw('styleguide/snippets/forms/radio.html') | escape }}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <div class="example-view">
+          {% include "styleguide/snippets/forms/radio-stacked.html" %}
+        </div>
+      </div>
+      <div class="column-third">
+        <div class="example-code">
+<pre><code class="language-markup">{{ include_raw('styleguide/snippets/forms/radio-stacked.html') | escape }}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <div class="example-view">
+          {% include "styleguide/snippets/forms/checkbox.html" %}
+        </div>
+      </div>
+      <div class="column-third">
+        <div class="example-code">
+<pre><code class="language-markup">{{ include_raw('styleguide/snippets/forms/checkbox.html') | escape }}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <div class="example-view">
+          {% include "styleguide/snippets/forms/checkbox-inline.html" %}
+        </div>
+      </div>
+      <div class="column-third">
+        <div class="example-code">
+<pre><code class="language-markup">{{ include_raw('styleguide/snippets/forms/checkbox-inline.html') | escape }}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="heading-large">Example form</h2>
+
+    <div class="grid-row">
+
+      <div class="column-two-thirds">
+        <div class="example-view">
+          {% include "styleguide/snippets/forms/example.html" %}
+        </div>
+      </div>
+
+      <div class="column-third">
+        <div class="example-code">
+<pre><code class="language-markup">{{ include_raw('styleguide/snippets/forms/example.html') | escape }}</code></pre>
+        </div>
+      </div>
+
+    </div>
+
+    <h2 class="heading-large">Example form errors</h2>
+
+    <p>
+      See <a href="http://govuk-elements.herokuapp.com/examples/form-validation-multiple-questions">working example</a> in GOV.UK Elements site
+    </p>
+
+    <div class="grid-row">
+
+      <div class="column-two-thirds">
+        <div class="example-view">
+          {% include "styleguide/snippets/forms/example-errors.html" %}
+        </div>
+      </div>
+
+      <div class="column-third">
+        <div class="example-code">
+<pre><code class="language-markup">{{ include_raw('styleguide/snippets/forms/example-errors.html') | escape }}</code></pre>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+{% endblock %}
