@@ -58,6 +58,10 @@ def buttons_and_similar_controls():
 def tables_and_data_display():
     return render_template('styleguide/tables_and_data_display.html')
 
+@app.route('/panels-and-callouts')
+def panels_and_callouts():
+    return render_template('styleguide/panels_and_callouts.html')
+
 # Components
 
 @app.route('/case-list')
