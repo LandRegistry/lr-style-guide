@@ -1134,7 +1134,7 @@ input[type=number] {
   line-height: 1.25;
   font-weight: 700;
   text-transform: none;
-  background-image: url("/static/images/icons/icon-pointer.png");
+  background-image: url("/static/govuk_frontend_toolkit/images/icon-pointer.png");
   background-repeat: no-repeat;
   background-position: 100% 50%;
   padding: 0.36842em 2.15789em 0.21053em 0.84211em; }
@@ -1144,7 +1144,7 @@ input[type=number] {
       line-height: 1.2; } }
   @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20/10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
     .button-get-started {
-      background-image: url("/static/images/icons/icon-pointer-2x.png");
+      background-image: url("/static/govuk_frontend_toolkit/images/icon-pointer-2x.png");
       background-size: 30px 19px; } }
 
 .panel-indent {

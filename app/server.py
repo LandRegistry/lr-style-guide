@@ -32,6 +32,7 @@ assets.register('styleguide-examples', examples)
 # Small thing to allow source code examples in a template
 app.jinja_env.globals['include_raw'] = lambda filename : app.jinja_loader.get_source(app.jinja_env, filename)[0]
 
+# General base styles
 
 @app.route('/')
 def home():
@@ -48,6 +49,16 @@ def layout():
 @app.route('/forms')
 def forms():
     return render_template('styleguide/forms.html')
+
+@app.route('/buttons-and-similar-controls')
+def buttons_and_similar_controls():
+    return render_template('styleguide/buttons_and_similar_controls.html')
+
+@app.route('/tables-and-data-display')
+def tables_and_data_display():
+    return render_template('styleguide/tables_and_data_display.html')
+
+# Components
 
 @app.route('/case-list')
 def case_list():
