@@ -4,17 +4,24 @@
 .case-list {
 
   margin: $gutter 0;
+  border-bottom: 1px solid $border-colour;
+
+  th {
+    border-bottom: 0;
+  }
 
   td {
     vertical-align: top;
-  }
-
-  .summary td {
     border-bottom: 0;
+    border-top: 1px solid $border-colour;
   }
 
   .summary td:first-child {
     font-weight: bold;
+  }
+
+  .details td {
+    border-top: 0;
   }
 
   .actions,
