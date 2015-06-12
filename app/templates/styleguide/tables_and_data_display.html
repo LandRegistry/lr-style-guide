@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Tables and data display | Style Guide
+{% endblock %}
+
+{% block content %}
+
+  <main id="content" role="main">
+  
+    <div class="text">
+
+      <p><a href="/">Home</a></p>
+
+      <h1 class="heading-xlarge">
+        <span class="heading-secondary">Land Registry style guide</span>
+        Tables and data display
+      </h1>
+
+    </div>
+
+    <h2 class="heading-large">Tables</h2>
+
+    <div class="example-view">
+      {% include "styleguide/snippets/tables_and_data_display/table.html" %}
+    </div>
+
+    <div class="example-code">
+<pre><code class="language-markup">{{ include_raw('styleguide/snippets/tables_and_data_display/table.html') | escape }}</code></pre>
+    </div>
+
+  </main>
+
+{% endblock %}

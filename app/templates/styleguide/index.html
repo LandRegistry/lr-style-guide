@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Style Guide
+{% endblock %}
+
+{% block content %}
+
+  <main id="content" role="main">
+  
+    <div class="text">
+
+      <h1 class="heading-xlarge">
+        <span class="heading-secondary">Land Registry</span>
+        Style guide
+      </h1>
+
+      <p>This style guide is optimised for public facing (ie GOV.UK style) applications.</p>
+
+      <p>
+        The original base is derived from <a rel="external" href="http://govuk-elements.herokuapp.com/">GOV.UK Elements</a>, so please get familiar with it!
+      </p>
+
+      <p>
+        Source code for this guide is on <a href="https://github.com/LandRegistry/lr-style-guide">Github</a>
+      </p>
+
+      <h2 class="heading-large">Contents</h2>
+      <h3 class="heading-small">Building blocks</h3>
+      <ol>
+        <li><a href="/layout">Layout</a></li>
+        <li><a href="/typography">Typography</a></li>
+        <li><a href="/forms">Forms</a></li>
+        <li><a href="/buttons-and-similar-controls">Buttons and similar controls</a></li>
+        <li><a href="/tables-and-data-display">Tables and data display</a></li>
+        <li><a href="/panels-and-callouts">Panels and callouts</a></li>
+      </ol>
+      <h3 class="heading-small">Specific components</h3>
+      <ol>
+        <li><a href="/case-list">Case list</a></li>
+      </ol>
+
+      <h3 class="heading-medium">Dependencies</h3>
+      <ul class="list-plain">
+        <li>The <a rel="external" href="https://github.com/alphagov/govuk_frontend_toolkit">GOV.UK front end toolkit</a></li>
+      </ul>
+
+    </div>
+
+  </main>
+
+{% endblock %}

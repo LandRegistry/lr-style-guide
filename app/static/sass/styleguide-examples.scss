@@ -1,0 +1,72 @@
+// ==========================================================================
+// Styles for examples within this style guide ONLY!
+// DO NOT CONSUME within an application
+
+// ==========================================================================
+// GOV.UK front end toolkit (all)
+// from: static/govuk_frontend_toolkit/stylesheets/
+@import 'colours';
+@import 'conditionals';
+@import 'css3';
+@import 'device-pixels';
+@import 'font_stack';
+@import 'grid_layout';
+@import 'measurements';
+@import 'shims';
+@import 'typography';
+@import 'url-helpers';
+@import 'design-patterns/alpha-beta';
+@import 'design-patterns/buttons';
+@import 'design-patterns/media-player';
+
+
+// ==========================================================================
+
+.example-view {
+  position: relative;
+  padding: $gutter;
+  margin-bottom: $gutter;
+  border: 1px solid $grey-2;
+
+  &:after {
+    content: 'Example';
+    font-size: 12px;
+    font-weight: bold;
+    color: $white;
+    text-transform: uppercase;
+    background-color: $grey-2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2px 8px;
+  }
+}
+
+.example-code pre {
+  position: relative;
+  padding-top: $gutter;
+  margin-bottom: $gutter;
+
+  &:after {
+    content: 'Markup';
+    font-family: $NTA-Light;
+    font-size: 12px;
+    font-weight: bold;
+    color: $white;
+    text-transform: uppercase;
+    background-color: $grey-2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2px 8px;
+  }
+}
+
+// expose grid areas
+.example-view .grid-row [class*='column-'] > p {
+  height: 60px;
+  background-color: $light-blue-25;
+  text-indent: -999em;
+  margin: 0;
+}
+

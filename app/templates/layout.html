@@ -1,0 +1,23 @@
+{% set asset_path = '/static/govuk_template/' %}
+{% set homepage_url = '/' %}
+
+{% extends "govuk_template.html" %}
+
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="/static/vendor/prism/prism.css">
+  {% assets "styleguide-examples" %}
+    <link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css" />
+  {% endassets %}
+
+  {% assets "styleguide" %}
+    <link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css" />
+  {% endassets %}
+  
+{% endblock %}
+
+{%  block body_end %}
+  <script type="text/javascript" src="/static/vendor/prism/prism.js"></script>
+
+  <script type="text/javascript" src="/static/js/vendor/jquery/jquery-1.11.3.js"></script>
+  <script type="text/javascript" src="/static/js/components/case-list.js"></script>
+{% endblock %}

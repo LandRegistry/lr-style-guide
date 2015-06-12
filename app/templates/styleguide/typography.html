@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Typography | Style Guide
+{% endblock %}
+
+{% block content %}
+
+  <main id="content" role="main">
+  
+    <div class="text">
+
+      <p><a href="/">Home</a></p>
+
+      <h1 class="heading-xlarge">
+        <span class="heading-secondary">Land Registry style guide</span>
+        Typography
+      </h1>
+
+    </div>
+
+    <h2 class="heading-large">Headings</h2>
+
+    <div class="grid-row">
+      <div class="column-half">
+        <div class="example-view">
+          {% include "styleguide/snippets/typography/headings.html" %}
+        </div>
+      </div>
+      <div class="column-half">
+        <div class="example-code">
+<pre><code class="language-markup">{{ include_raw('styleguide/snippets/typography/headings.html') | escape }}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-row">
+      <div class="column-half">
+        <div class="example-view">
+          {% include "styleguide/snippets/typography/headings-secondary.html" %}
+        </div>
+      </div>
+      <div class="column-half">
+        <div class="example-code">
+<pre><code class="language-markup">{{ include_raw('styleguide/snippets/typography/headings-secondary.html') | escape }}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="heading-large">Paragraphs</h2>
+
+    <div class="grid-row">
+      <div class="column-half">
+        <div class="example-view">
+          {% include "styleguide/snippets/typography/paragraphs.html" %}
+        </div>
+      </div>
+      <div class="column-half">
+        <div class="example-code">
+<pre><code class="language-markup">{{ include_raw('styleguide/snippets/typography/paragraphs.html') | escape }}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="heading-large">Lists</h2>
+
+    <div class="grid-row">
+      <div class="column-half">
+        <div class="example-view">
+          {% include "styleguide/snippets/typography/lists.html" %}
+        </div>
+      </div>
+      <div class="column-half">
+        <div class="example-code">
+<pre><code class="language-markup">{{ include_raw('styleguide/snippets/typography/lists.html') | escape }}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-row">
+      <div class="column-half">
+        <div class="example-view">
+          {% include "styleguide/snippets/typography/lists-definition.html" %}
+        </div>
+      </div>
+      <div class="column-half">
+        <div class="example-code">
+<pre><code class="language-markup">{{ include_raw('styleguide/snippets/typography/lists-definition.html') | escape }}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="heading-large">Inline and miscellaneous elements</h2>
+
+    <div class="grid-row">
+      <div class="column-half">
+        <div class="example-view">
+          {% include "styleguide/snippets/typography/inline.html" %}
+        </div>
+      </div>
+      <div class="column-half">
+        <div class="example-code">
+<pre><code class="language-markup">{{ include_raw('styleguide/snippets/typography/inline.html') | escape }}</code></pre>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+{% endblock %}

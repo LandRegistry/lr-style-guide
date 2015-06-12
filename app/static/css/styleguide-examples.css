@@ -1,0 +1,117 @@
+@-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
+  width: device-width; }
+
+@font-face {
+  font-family: GDS-Logo;
+  src: local("HelveticaNeue"), local("Helvetica Neue"), local("Arial"), local("Helvetica"); }
+
+@-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
+  width: device-width; }
+
+@-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
+  width: device-width; }
+
+@-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
+  width: device-width; }
+
+@font-face {
+  font-family: GDS-Logo;
+  src: local("HelveticaNeue"), local("Helvetica Neue"), local("Arial"), local("Helvetica"); }
+
+@-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
+  width: device-width; }
+
+@font-face {
+  font-family: GDS-Logo;
+  src: local("HelveticaNeue"), local("Helvetica Neue"), local("Arial"), local("Helvetica"); }
+
+@-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
+  width: device-width; }
+
+@-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
+  width: device-width; }
+
+@-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
+  width: device-width; }
+
+@-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
+  width: device-width; }
+
+@-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
+  width: device-width; }
+
+@-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
+  width: device-width; }
+
+.example-view {
+  position: relative;
+  padding: 30px;
+  margin-bottom: 30px;
+  border: 1px solid #bfc1c3; }
+  .example-view:after {
+    content: 'Example';
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    background-color: #bfc1c3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2px 8px; }
+
+.example-code pre {
+  position: relative;
+  padding-top: 30px;
+  margin-bottom: 30px; }
+  .example-code pre:after {
+    content: 'Markup';
+    font-family: "nta", Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    background-color: #bfc1c3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2px 8px; }
+
+.example-view .grid-row [class*='column-'] > p {
+  height: 60px;
+  background-color: #d5e8f3;
+  text-indent: -999em;
+  margin: 0; }
