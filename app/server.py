@@ -6,14 +6,15 @@ import sass as libsass
 
 
 __dot = path.dirname(path.realpath(__file__))
-__toolkit_dir = path.join(__dot, 'static/govuk_frontend_toolkit/stylesheets/')
-__styleguide_dir = path.join(__dot, 'static/sass/partials/')
+
+__toolkit_scss_dir = path.join(__dot, 'static/govuk_frontend_toolkit/stylesheets/')
+__styleguide_scss_dir = path.join(__dot, 'static/sass/partials/')
 
 def compile_sass(_in, out, **kw):
     out.write(
         libsass.compile(
             string=_in.read(),
-            include_paths=[__toolkit_dir, __styleguide_dir]
+            include_paths=[__toolkit_scss_dir, __styleguide_scss_dir]
         )
     )
 
@@ -25,6 +26,15 @@ sass = Bundle('sass/styleguide.scss',
               filters=(compile_sass,), output='css/styleguide.css')
 assets.register('styleguide', sass)
 
+js = Bundle('govuk_frontend_toolkit/javascripts/vendor/polyfills/bind.js',
+            'govuk_frontend_toolkit/javascripts/govuk/selection-buttons.js',
+            'js/vendor/polyfills/details.polyfill.js',
+            'js/components/case-list.js',
+            'js/components/inits.js',
+            filters='jsmin', output='js/components.js')
+assets.register('js_components', js)
+
+# Example only styles
 examples = Bundle('sass/styleguide-examples.scss',
               filters=(compile_sass,), output='css/styleguide-examples.css')
 assets.register('styleguide-examples', examples)
