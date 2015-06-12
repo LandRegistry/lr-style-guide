@@ -25,6 +25,11 @@ sass = Bundle('sass/styleguide.scss',
               filters=(compile_sass,), output='css/styleguide.css')
 assets.register('styleguide', sass)
 
+js = Bundle('js/components/case-list.js',
+            filters='jsmin', output='js/components.js')
+assets.register('js_components', js)
+
+# Example only styles
 examples = Bundle('sass/styleguide-examples.scss',
               filters=(compile_sass,), output='css/styleguide-examples.css')
 assets.register('styleguide-examples', examples)
