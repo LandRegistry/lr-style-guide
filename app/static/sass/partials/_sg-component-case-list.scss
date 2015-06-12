@@ -1,0 +1,32 @@
+// Case list
+// ==========================================================================
+
+.case-list {
+
+  margin: $gutter 0;
+
+  td {
+    vertical-align: top;
+  }
+
+  .summary td {
+    border-bottom: 0;
+  }
+
+  .summary td:first-child {
+    font-weight: bold;
+  }
+
+  .actions,
+  .action-delete {
+    margin-bottom: $gutter-half;
+  }
+
+  .actions,
+  .action-delete {
+    a {
+      margin-right: $gutter-half;
+    }
+  }
+
+}

@@ -1237,3 +1237,18 @@ input[type=number] {
     .icon-pointer-black {
       background-image: url("/static/govuk_frontend_toolkit/images/icon-pointer-black-2x.png");
       background-size: 100%; } }
+
+.case-list {
+  margin: 30px 0; }
+  .case-list td {
+    vertical-align: top; }
+  .case-list .summary td {
+    border-bottom: 0; }
+  .case-list .summary td:first-child {
+    font-weight: bold; }
+  .case-list .actions,
+  .case-list .action-delete {
+    margin-bottom: 15px; }
+  .case-list .actions a,
+  .case-list .action-delete a {
+    margin-right: 15px; }

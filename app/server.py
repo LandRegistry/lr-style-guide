@@ -49,6 +49,10 @@ def layout():
 def forms():
     return render_template('styleguide/forms.html')
 
+@app.route('/components')
+def components():
+    return render_template('styleguide/components.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
     # Bind to PORT if defined, otherwise default to 5000.
