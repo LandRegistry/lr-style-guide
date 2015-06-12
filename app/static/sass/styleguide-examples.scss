@@ -1,5 +1,6 @@
 // ==========================================================================
-// Styles for examples within this style guide only!
+// Styles for examples within this style guide ONLY!
+// DO NOT CONSUME within an application
 
 // ==========================================================================
 // GOV.UK front end toolkit (all)
@@ -60,3 +61,12 @@
     padding: 2px 8px;
   }
 }
+
+// expose grid areas
+.example-view .grid-row [class*='column-'] > p {
+  height: 60px;
+  background-color: $light-blue-25;
+  text-indent: -999em;
+  margin: 0;
+}
+

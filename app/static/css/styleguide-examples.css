@@ -109,3 +109,9 @@
     top: 0;
     left: 0;
     padding: 2px 8px; }
+
+.example-view .grid-row [class*='column-'] > p {
+  height: 60px;
+  background-color: #d5e8f3;
+  text-indent: -999em;
+  margin: 0; }

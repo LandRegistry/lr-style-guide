@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Layout | Style Guide
+{% endblock %}
+
+{% block content %}
+
+  <main id="content" role="main">
+  
+    <div class="text">
+
+      <p><a href="/">Home</a></p>
+
+      <h1 class="heading-xlarge">
+        <span class="heading-secondary">Land Registry style guide</span>
+        Layout
+      </h1>
+
+    </div>
+
+    <h2 class="heading-large">Grid</h2>
+
+    <div class="example-view">
+      {% include "styleguide/snippets/layout/grid-1-2.html" %}
+    </div>
+    <div class="example-code">
+<pre><code class="language-markup">{{ include_raw('styleguide/snippets/layout/grid-1-2.html') | escape }}</code></pre>
+    </div>
+
+    <div class="example-view">
+      {% include "styleguide/snippets/layout/grid-thirds.html" %}
+    </div>
+    <div class="example-code">
+<pre><code class="language-markup">{{ include_raw('styleguide/snippets/layout/grid-thirds.html') | escape }}</code></pre>
+    </div>
+
+    <div class="example-view">
+      {% include "styleguide/snippets/layout/grid-quarters.html" %}
+    </div>
+    <div class="example-code">
+<pre><code class="language-markup">{{ include_raw('styleguide/snippets/layout/grid-quarters.html') | escape }}</code></pre>
+    </div>
+
+    <h2 class="heading-large">Simple text column</h2>
+
+    <div class="example-view">
+      {% include "styleguide/snippets/layout/text-column.html" %}
+    </div>
+
+    <div class="example-code">
+<pre><code class="language-markup">{{ include_raw('styleguide/snippets/layout/text-column.html') | escape }}</code></pre>
+    </div>
+
+  </main>
+
+{% endblock %}
