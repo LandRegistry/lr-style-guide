@@ -9,6 +9,9 @@
   th {
     border-bottom: 0;
   }
+  th:first-child {
+    padding-left: $gutter-half;
+  }
 
   td {
     vertical-align: top;
@@ -17,10 +20,12 @@
   }
 
   .summary td:first-child {
+    padding-left: $gutter-half;
     font-weight: bold;
   }
 
   .details td {
+    padding-left: $gutter-half;
     border-top: 0;
   }
 
@@ -34,6 +39,11 @@
     a {
       margin-right: $gutter-half;
     }
+  }
+
+  .new-case,
+  .new-case + .details {
+    background-color: $yellow-25;
   }
 
 }

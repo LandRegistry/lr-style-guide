@@ -1243,13 +1243,17 @@ input[type=number] {
   border-bottom: 1px solid #bfc1c3; }
   .case-list th {
     border-bottom: 0; }
+  .case-list th:first-child {
+    padding-left: 15px; }
   .case-list td {
     vertical-align: top;
     border-bottom: 0;
     border-top: 1px solid #bfc1c3; }
   .case-list .summary td:first-child {
+    padding-left: 15px;
     font-weight: bold; }
   .case-list .details td {
+    padding-left: 15px;
     border-top: 0; }
   .case-list .actions,
   .case-list .action-delete {
@@ -1257,3 +1261,6 @@ input[type=number] {
   .case-list .actions a,
   .case-list .action-delete a {
     margin-right: 15px; }
+  .case-list .new-case,
+  .case-list .new-case + .details {
+    background-color: #fff2d3; }
