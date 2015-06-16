@@ -78,6 +78,10 @@ def panels_and_callouts():
 def case_list():
     return render_template('styleguide/case_list.html')
 
+@app.route('/search-results')
+def search_results():
+    return render_template('styleguide/search_results.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
     # Bind to PORT if defined, otherwise default to 5000.
