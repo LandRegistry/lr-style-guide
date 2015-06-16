@@ -4,39 +4,28 @@
 {% extends "govuk_template.html" %}
 
 {% block head %}
-  <!--[if gt IE 8]><!-->
-    <link rel="stylesheet" type="text/css" href="/static/vendor/prism/prism.css">
-  <!--<![endif]-->
-  {% assets "styleguide-examples" %}
-    <link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css" />
-  {% endassets %}
 
-  {% assets "styleguide" %}
-    <!--[if gt IE 8]><!-->
-      <link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css" />
-    <!--<![endif]-->
-  {% endassets %}
+  <!-- Styleguide only assets - for examples and code highlighting -->
+  <!--[if gt IE 8]><!--><link rel="stylesheet" type="text/css" href="/static/vendor/prism/prism.css"><!--<![endif]-->
+  {% assets "styleguide-examples" %}<link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css" />{% endassets %}
 
-  {% assets "styleguide_ie8" %}
-    <!--[if IE 8]><link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
-  {% endassets %}
-  {% assets "styleguide_ie7" %}
-    <!--[if IE 7]><link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
-  {% endassets %}
-  {% assets "styleguide_ie6" %}
-    <!--[if IE 6]><link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
-  {% endassets %}
+
+  <!-- Consumable assets -->
+  {% assets "styleguide" %}<!--[if gt IE 8]><!--><link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css" /><!--<![endif]-->{% endassets %}
+  {% assets "styleguide_ie8" %}<!--[if IE 8]><link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css" /><![endif]-->{% endassets %}
+  {% assets "styleguide_ie7" %}<!--[if IE 7]><link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css" /><![endif]-->{% endassets %}
+  {% assets "styleguide_ie6" %}<!--[if IE 6]><link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css" /><![endif]-->{% endassets %}
 
 {% endblock %}
 
 {%  block body_end %}
-  <!--[if gt IE 8]><!-->
-  <script type="text/javascript" src="/static/vendor/prism/prism.js"></script>
-  <!--<![endif]-->
 
+  <!-- Styleguide only assets - for examples and code highlighting -->
+  <!--[if gt IE 8]><!--><script type="text/javascript" src="/static/vendor/prism/prism.js"></script><!--<![endif]-->
+
+
+  <!-- Consumable assets -->
   <script type="text/javascript" src="/static/js/vendor/jquery/jquery-1.11.3.js"></script>
+  {% assets "js_components" %}<script type="text/javascript" src="{{ ASSET_URL }}"></script>{% endassets %}
 
-  {% assets "js_components" %}
-    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
-  {% endassets %}
 {% endblock %}
