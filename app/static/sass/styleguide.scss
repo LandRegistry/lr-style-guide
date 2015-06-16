@@ -28,20 +28,20 @@
 // ==========================================================================
 // Import styleguide partials
 // dependencies on GOV.UK front end toolkit
-// from: static/sass/partials/
+// from: static/sass/
 
-@import 'sg-helpers';
-@import 'sg-reset';
+@import 'partials/sg-helpers';
+@import 'partials/sg-reset';
 
-@import 'sg-layout';
-@import 'sg-typography';
-@import 'sg-lists';
-@import 'sg-details';
-@import 'sg-tables';
-@import 'sg-forms';
-@import 'sg-buttons';
-@import 'sg-panels';
-@import 'sg-icons';
+@import 'partials/sg-layout';
+@import 'partials/sg-typography';
+@import 'partials/sg-lists';
+@import 'partials/sg-details';
+@import 'partials/sg-tables';
+@import 'partials/sg-forms';
+@import 'partials/sg-buttons';
+@import 'partials/sg-panels';
+@import 'partials/sg-icons';
 
-@import 'sg-component-case-list';
-@import 'sg-component-search-results';
+@import 'partials/sg-component-case-list';
+@import 'partials/sg-component-search-results';
