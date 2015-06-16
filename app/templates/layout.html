@@ -4,18 +4,35 @@
 {% extends "govuk_template.html" %}
 
 {% block head %}
-  <link rel="stylesheet" type="text/css" href="/static/vendor/prism/prism.css">
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" type="text/css" href="/static/vendor/prism/prism.css">
+  <!--<![endif]-->
   {% assets "styleguide-examples" %}
     <link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css" />
   {% endassets %}
 
   {% assets "styleguide" %}
-    <link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css" />
+    <!--[if gt IE 8]><!-->
+      <link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css" />
+    <!--<![endif]-->
   {% endassets %}
+
+  {% assets "styleguide_ie8" %}
+    <!--[if IE 8]><link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+  {% endassets %}
+  {% assets "styleguide_ie7" %}
+    <!--[if IE 7]><link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+  {% endassets %}
+  {% assets "styleguide_ie6" %}
+    <!--[if IE 6]><link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+  {% endassets %}
+
 {% endblock %}
 
 {%  block body_end %}
+  <!--[if gt IE 8]><!-->
   <script type="text/javascript" src="/static/vendor/prism/prism.js"></script>
+  <!--<![endif]-->
 
   <script type="text/javascript" src="/static/js/vendor/jquery/jquery-1.11.3.js"></script>
 
