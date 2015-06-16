@@ -634,7 +634,10 @@ ol {
   padding-left: 20px; }
 
 ol.list-plain,
-ul.list-plain {
+ol.search-results-listing,
+.search-results-listing ol,
+.search-results-listing ol ol,
+ul.list-plain, ul.search-results-listing {
   list-style: none;
   padding-left: 0; }
 
@@ -1264,3 +1267,23 @@ input[type=number] {
   .case-list .new-case,
   .case-list .new-case + .details {
     background-color: #fff2d3; }
+
+.child-tenure {
+  border-left: 1px dotted #bfc1c3; }
+  .child-tenure li {
+    position: relative;
+    padding-left: 30px; }
+    .child-tenure li:before {
+      content: '';
+      left: 0;
+      top: 50%;
+      position: absolute;
+      border-top: 1px dotted #bfc1c3;
+      width: 15px; }
+    .child-tenure li:last-child:after {
+      content: '';
+      left: -1px;
+      top: 50%;
+      bottom: 0;
+      position: absolute;
+      border-left: 1px solid #fff; }
