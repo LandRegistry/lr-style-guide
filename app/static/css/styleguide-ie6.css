@@ -1283,7 +1283,6 @@ input[type=number] {
           line-height: 1.11111; } }
     .pagination-prev-next li a {
       display: block;
-      color: #005ea5;
       text-decoration: none;
       height: 4.5em; }
       .pagination-prev-next li a:hover,

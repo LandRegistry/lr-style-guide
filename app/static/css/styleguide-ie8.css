@@ -1256,7 +1256,6 @@ input[type=number] {
           line-height: 1.11111; } }
     .pagination-prev-next li a {
       display: block;
-      color: #005ea5;
       text-decoration: none; }
       .pagination-prev-next li a:hover,
       .pagination-prev-next li a:active {

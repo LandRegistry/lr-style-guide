@@ -28,7 +28,6 @@
 
     a {
       display: block;
-      color: $link-colour;
       text-decoration: none;
 
       @include ie-lte(7) {
@@ -42,24 +41,24 @@
 
     }
 
-    &.next-page a:before {
-      background: transparent url("/static/images/sprite-pagination-arrow.png") no-repeat -102px -11px;
-      margin: -4px -32px 0 0;
+    &.next-page a:before,
+    &.previous-page a:before {
       display: block;
-      float: right;
       width: 30px;
       height: 38px;
       content: " ";
     }
 
+    &.next-page a:before {
+      background: transparent url("/static/images/sprite-pagination-arrow.png") no-repeat -102px -11px;
+      margin: -4px -32px 0 0;
+      float: right;
+    }
+
     &.previous-page a:before {
       background: transparent url("/static/images/sprite-pagination-arrow.png") no-repeat -20px -11px;
       margin: -4px 0 0 -32px;
-      display: block;
       float: left;
-      width: 30px;
-      height: 38px;
-      content: " ";
     }
 
     &.previous-page a {
