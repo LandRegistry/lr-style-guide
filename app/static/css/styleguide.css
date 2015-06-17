@@ -1269,19 +1269,19 @@ input[type=number] {
   .case-list .new-case + .details {
     background-color: #fff2d3; }
 
-.search-results-listing .child-tenure {
+.search-results-listing .nested-child {
   border-left: 1px dotted #bfc1c3; }
-  .search-results-listing .child-tenure li {
+  .search-results-listing .nested-child li {
     position: relative;
     padding-left: 30px; }
-    .search-results-listing .child-tenure li:before {
+    .search-results-listing .nested-child li:before {
       content: '';
       left: 0;
       top: 50%;
       position: absolute;
       border-top: 1px dotted #bfc1c3;
       width: 15px; }
-    .search-results-listing .child-tenure li:last-child:after {
+    .search-results-listing .nested-child li:last-child:after {
       content: '';
       left: -1px;
       top: 50%;
