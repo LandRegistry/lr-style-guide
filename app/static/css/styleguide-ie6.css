@@ -470,7 +470,7 @@ main {
         font-size: 18px;
         line-height: 1.2; } }
 
-.heading-medium {
+.heading-medium, .service-notice h2 {
   font-family: "nta", Arial, sans-serif;
   font-size: 24px;
   line-height: 1.25;
@@ -481,7 +481,7 @@ main {
   margin-top: 1.875em;
   margin-bottom: 0.83333em; }
   @media (max-width: 640px) {
-    .heading-medium {
+    .heading-medium, .service-notice h2 {
       font-size: 18px;
       line-height: 1.2; } }
 
@@ -1125,6 +1125,15 @@ input[type=number] {
   .panel-indent p:last-child {
     margin-bottom: 0; }
   .panel-indent .form-group:last-child {
+    margin-bottom: 0; }
+
+.service-notice {
+  padding: 30px 15px;
+  border-left: 4px solid #ffbf47;
+  background-color: #fff2d3; }
+  .service-notice h2 {
+    margin-top: 0; }
+  .service-notice p {
     margin-bottom: 0; }
 
 .icon {
