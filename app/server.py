@@ -94,6 +94,10 @@ def case_list():
 def search_results():
     return render_template('styleguide/search_results.html')
 
+@app.route('/pagination')
+def pagination():
+    return render_template('styleguide/pagination.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
     # Bind to PORT if defined, otherwise default to 5000.
