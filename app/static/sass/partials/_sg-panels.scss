@@ -1,4 +1,4 @@
-// Panels
+// Panels and callouts
 // ==========================================================================
 
 // Indented panels with a grey left hand border
@@ -23,4 +23,21 @@
   .form-group:last-child {
     margin-bottom: 0;
   }
+}
+
+.service-notice {
+
+  padding: $gutter $gutter-half;
+  border-left: 4px solid $yellow;
+  background-color: $yellow-25;
+
+  h2 {
+    @extend .heading-medium;
+    margin-top: 0;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
 }
