@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Pagination | Components | Style Guide
+{% endblock %}
+
+{% block content %}
+
+  <main id="content" role="main">
+  
+    <div class="text">
+
+      <p><a href="/">Home</a></p>
+
+      <h1 class="heading-xlarge">
+        <span class="heading-secondary">Land Registry style guide</span>
+        Component: pagination
+      </h1>
+
+    </div>
+
+    <h2 class="heading-large">Both previous and next pages available</h2>
+
+    <div class="example-view">
+      {% include "styleguide/snippets/components/pagination.html" %}
+    </div>
+
+    <div class="example-code">
+<pre><code class="language-markup">{{ include_raw('styleguide/snippets/components/pagination.html') | escape }}</code></pre>
+    </div>
+
+    <h2 class="heading-large">Only next page available</h2>
+
+    <div class="example-view">
+      {% include "styleguide/snippets/components/pagination-next-only.html" %}
+    </div>
+
+    <div class="example-code">
+<pre><code class="language-markup">{{ include_raw('styleguide/snippets/components/pagination-next-only.html') | escape }}</code></pre>
+    </div>
+
+    <h2 class="heading-large">Only previous page available</h2>
+
+    <div class="example-view">
+      {% include "styleguide/snippets/components/pagination-prev-only.html" %}
+    </div>
+
+    <div class="example-code">
+<pre><code class="language-markup">{{ include_raw('styleguide/snippets/components/pagination-prev-only.html') | escape }}</code></pre>
+    </div>
+
+  </main>
+
+{% endblock %}
