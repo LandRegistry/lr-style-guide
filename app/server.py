@@ -44,6 +44,7 @@ js = Bundle('govuk_frontend_toolkit/javascripts/vendor/polyfills/bind.js',
             'govuk_frontend_toolkit/javascripts/govuk/selection-buttons.js',
             'lr-styleguide/js/vendor/polyfills/details.polyfill.js',
             'lr-styleguide/js/vendor/jquery/jquery-1.11.3.js',
+            'lr-styleguide/js/components/buttons-actions.js',
             'lr-styleguide/js/components/case-list.js',
             'lr-styleguide/js/components/inits.js',
             filters='rjsmin', output='lr-styleguide/js/styleguide-components.js')
