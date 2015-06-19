@@ -65,3 +65,7 @@ virtual-environment
 # Webassets cache
 app/static/.webassets-cache
 
+# Codekit local asset generation
+app/static/lr-styleguide/config.codekit
+
+
