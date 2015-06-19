@@ -1269,6 +1269,28 @@ input[type=number] {
       background-image: url("/static/govuk_frontend_toolkit/images/icon-pointer-black-2x.png");
       background-size: 100%; } }
 
+.collapse-top {
+  margin-top: 0; }
+
+.collapse-bottom {
+  margin-bottom: 0; }
+
+.expand {
+  margin-top: 30px;
+  margin-bottom: 30px; }
+
+.expand-top {
+  margin-top: 30px; }
+
+.expand-top-half {
+  margin-top: 15px; }
+
+.expand-bottom {
+  margin-bottom: 30px; }
+
+.expand-bottom-half {
+  margin-bottom: 15px; }
+
 .global-breadcrumb ol {
   margin: 0;
   padding: 0.75em 0 30px 0;
