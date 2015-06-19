@@ -89,17 +89,21 @@ def panels_and_callouts():
 
 # Components
 
+@app.route('/breadcrumbs')
+def breadcrumbs():
+    return render_template('styleguide/breadcrumbs.html')
+
 @app.route('/case-list')
 def case_list():
     return render_template('styleguide/case_list.html')
 
-@app.route('/search-results')
-def search_results():
-    return render_template('styleguide/search_results.html')
-
 @app.route('/pagination')
 def pagination():
     return render_template('styleguide/pagination.html')
+
+@app.route('/search-results')
+def search_results():
+    return render_template('styleguide/search_results.html')
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.

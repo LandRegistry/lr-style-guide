@@ -15,7 +15,6 @@
 @import 'design-patterns/buttons';
 @import 'design-patterns/media-player';
 
-
 // ==========================================================================
 // Import styleguide partials
 // dependencies on GOV.UK front end toolkit
@@ -34,6 +33,7 @@
 @import 'partials/sg-panels';
 @import 'partials/sg-icons';
 
+@import 'partials/sg-component-breadcrumbs';
 @import 'partials/sg-component-case-list';
-@import 'partials/sg-component-search-results';
 @import 'partials/sg-component-pagination';
+@import 'partials/sg-component-search-results';
