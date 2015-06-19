@@ -6,7 +6,7 @@
 {% block head %}
 
   <!-- Styleguide only assets - for examples and code highlighting -->
-  <!--[if gt IE 8]><!--><link rel="stylesheet" type="text/css" href="/static/vendor/prism/prism.css"><!--<![endif]-->
+  <!--[if gt IE 8]><!--><link rel="stylesheet" type="text/css" href="/static/demo/vendor/prism/prism.css"><!--<![endif]-->
   {% assets "styleguide-examples" %}<link href="{{ ASSET_URL }}" media="screen" rel="stylesheet" type="text/css" />{% endassets %}
 
 
@@ -21,11 +21,10 @@
 {%  block body_end %}
 
   <!-- Styleguide only assets - for examples and code highlighting -->
-  <!--[if gt IE 8]><!--><script type="text/javascript" src="/static/vendor/prism/prism.js"></script><!--<![endif]-->
+  <!--[if gt IE 8]><!--><script type="text/javascript" src="/static/demo/vendor/prism/prism.js"></script><!--<![endif]-->
 
 
   <!-- Consumable assets -->
-  <script type="text/javascript" src="/static/js/vendor/jquery/jquery-1.11.3.js"></script>
-  {% assets "js_components" %}<script type="text/javascript" src="{{ ASSET_URL }}"></script>{% endassets %}
+  {% assets "styleguide_js" %}<script type="text/javascript" src="{{ ASSET_URL }}"></script>{% endassets %}
 
 {% endblock %}
