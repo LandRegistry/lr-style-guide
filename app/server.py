@@ -10,7 +10,7 @@ import sass as libsass
 __dot = path.dirname(path.realpath(__file__))
 
 __toolkit_scss_dir = path.join(__dot, 'static/govuk_frontend_toolkit/stylesheets/')
-__styleguide_scss_dir = path.join(__dot, 'static/sass/')
+__styleguide_scss_dir = path.join(__dot, 'lr-styleguide/static/sass/')
 
 def compile_sass(_in, out, **kw):
     out.write(
@@ -24,20 +24,20 @@ def compile_sass(_in, out, **kw):
 app = Flask(__name__)
 assets = Environment(app)
 
-sass = Bundle('sass/styleguide.scss',
-              filters=(compile_sass,), output='css/styleguide.css')
+sass = Bundle('lr-styleguide/sass/styleguide.scss',
+              filters=(compile_sass,), output='lr-styleguide/css/styleguide.css')
 assets.register('styleguide', sass)
 
-sass_ie8 = Bundle('sass/styleguide-ie8.scss',
-              filters=(compile_sass,), output='css/styleguide-ie8.css')
+sass_ie8 = Bundle('lr-styleguide/sass/styleguide-ie8.scss',
+              filters=(compile_sass,), output='lr-styleguide/css/styleguide-ie8.css')
 assets.register('styleguide_ie8', sass_ie8)
 
-sass_ie7 = Bundle('sass/styleguide-ie7.scss',
-              filters=(compile_sass,), output='css/styleguide-ie7.css')
+sass_ie7 = Bundle('lr-styleguide/sass/styleguide-ie7.scss',
+              filters=(compile_sass,), output='lr-styleguide/css/styleguide-ie7.css')
 assets.register('styleguide_ie7', sass_ie7)
 
-sass_ie6 = Bundle('sass/styleguide-ie6.scss',
-              filters=(compile_sass,), output='css/styleguide-ie6.css')
+sass_ie6 = Bundle('lr-styleguide/sass/styleguide-ie6.scss',
+              filters=(compile_sass,), output='lr-styleguide/css/styleguide-ie6.css')
 assets.register('styleguide_ie6', sass_ie6)
 
 js = Bundle('govuk_frontend_toolkit/javascripts/vendor/polyfills/bind.js',
