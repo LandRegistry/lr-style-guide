@@ -42,11 +42,12 @@ assets.register('styleguide_ie6', sass_ie6)
 
 js = Bundle('govuk_frontend_toolkit/javascripts/vendor/polyfills/bind.js',
             'govuk_frontend_toolkit/javascripts/govuk/selection-buttons.js',
-            'js/vendor/polyfills/details.polyfill.js',
-            'js/components/case-list.js',
-            'js/components/inits.js',
-            filters='jsmin', output='js/components.js')
-assets.register('js_components', js)
+            'lr-styleguide/js/vendor/polyfills/details.polyfill.js',
+            'lr-styleguide/js/vendor/jquery/jquery-1.11.3.js',
+            'lr-styleguide/js/components/case-list.js',
+            'lr-styleguide/js/components/inits.js',
+            filters='rjsmin', output='lr-styleguide/js/styleguide-components.js')
+assets.register('styleguide_js', js)
 
 # Example only styles
 examples = Bundle('demo/sass/styleguide-examples.scss',
