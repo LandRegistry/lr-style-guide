@@ -271,6 +271,10 @@ table, caption, tbody, tfoot, thead, tr, th, td {
       float: left;
       width: 66.66667%; } }
 
+@media (min-width: 641px) {
+  .column-flip {
+    float: right; } }
+
 main {
   font-family: "nta", Arial, sans-serif;
   font-size: 19px;
