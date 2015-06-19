@@ -25,6 +25,12 @@
   }
 }
 
+.panel-simple {
+  border: 4px solid $border-colour;
+  padding: $gutter-half;
+  margin-bottom: $gutter; 
+}
+
 .service-notice {
 
   padding: $gutter $gutter-half;

@@ -1177,6 +1177,11 @@ input[type=number] {
   .panel-indent .form-group:last-child {
     margin-bottom: 0; }
 
+.panel-simple {
+  border: 4px solid #bfc1c3;
+  padding: 15px;
+  margin-bottom: 30px; }
+
 .service-notice {
   padding: 30px 15px;
   border-left: 4px solid #ffbf47;
