@@ -62,3 +62,10 @@
 .column-two-thirds {
   @include grid-column(2/3);
 }
+
+// Flip a column - to float right on larger views
+.column-flip {
+  @include media(tablet) {
+    float: right;
+  }
+}
