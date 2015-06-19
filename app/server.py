@@ -49,8 +49,8 @@ js = Bundle('govuk_frontend_toolkit/javascripts/vendor/polyfills/bind.js',
 assets.register('js_components', js)
 
 # Example only styles
-examples = Bundle('sass/styleguide-examples.scss',
-              filters=(compile_sass,), output='css/styleguide-examples.css')
+examples = Bundle('demo/sass/styleguide-examples.scss',
+              filters=(compile_sass,), output='demo/css/styleguide-examples.css')
 assets.register('styleguide-examples', examples)
 
 # Small thing to allow source code examples in a template
