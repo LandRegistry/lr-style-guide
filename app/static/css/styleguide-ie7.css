@@ -1300,11 +1300,11 @@ input[type=number] {
       height: 38px;
       content: " "; }
     .pagination-prev-next li.next-page a:before {
-      background: transparent url("/static/images/sprite-pagination-arrow.png") no-repeat -102px -11px;
+      background: transparent url("/static/lr-styleguide/images/sprite-pagination-arrow.png") no-repeat -102px -11px;
       margin: -4px -32px 0 0;
       float: right; }
     .pagination-prev-next li.previous-page a:before {
-      background: transparent url("/static/images/sprite-pagination-arrow.png") no-repeat -20px -11px;
+      background: transparent url("/static/lr-styleguide/images/sprite-pagination-arrow.png") no-repeat -20px -11px;
       margin: -4px 0 0 -32px;
       float: left; }
     .pagination-prev-next li.previous-page a {
