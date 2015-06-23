@@ -30,8 +30,10 @@ module.exports = function(grunt) {
     concat: {
       dist: {
         src: [
-          'lr-styleguide/js/vendor/jquery/jquery-1.11.3.js',
+          'node_modules/govuk_frontend_toolkit/javascripts/vendor/polyfills/bind.js',
           'lr-styleguide/js/vendor/polyfills/details.polyfill.js',
+          'lr-styleguide/js/vendor/jquery/jquery-1.11.3.js',
+          'node_modules/govuk_frontend_toolkit/javascripts/govuk/selection-buttons.js',
           'lr-styleguide/js/components/buttons-actions.js',
           'lr-styleguide/js/components/case-list.js',
           'lr-styleguide/js/components/init.js'

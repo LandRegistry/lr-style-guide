@@ -1,3 +1,252 @@
+// Function.prototype.bind
+//
+// A polyfill for Function.prototype.bind. Which lets you bind a defined
+// value to the `this` keyword in a function call.
+//
+// Bind is natively supported in:
+//   IE9+
+//   Chrome 7+
+//   Firefox 4+
+//   Safari 5.1.4+
+//   iOS 6+
+//   Android Browser 4+
+//   Chrome for Android 0.16+
+//
+// Originally from:
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
+if (!Function.prototype.bind) {
+  Function.prototype.bind = function (oThis) {
+    if (typeof this !== "function") {
+      // closest thing possible to the ECMAScript 5
+      // internal IsCallable function
+      throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+    }
+
+    var aArgs = Array.prototype.slice.call(arguments, 1),
+        fToBind = this,
+        fNOP = function () {},
+        fBound = function () {
+          return fToBind.apply(this instanceof fNOP && oThis
+                 ? this
+                 : oThis,
+                 aArgs.concat(Array.prototype.slice.call(arguments)));
+        };
+
+    fNOP.prototype = this.prototype;
+    fBound.prototype = new fNOP();
+
+    return fBound;
+  };
+}
+
+// <details> polyfill
+// http://caniuse.com/#feat=details
+
+// FF Support for HTML5's <details> and <summary>
+// https://bugzilla.mozilla.org/show_bug.cgi?id=591737
+
+// http://www.sitepoint.com/fixing-the-details-element/
+
+(function () {
+
+  // Add event construct for modern browsers or IE
+  // which fires the callback with a pre-converted target reference
+  function addEvent(node, type, callback) {
+    if (node.addEventListener) {
+      node.addEventListener(type, function (e) {
+        callback(e, e.target);
+      }, false);
+    } else if (node.attachEvent) {
+      node.attachEvent('on' + type, function (e) {
+        callback(e, e.srcElement);
+      });
+    }
+  }
+
+  // Handle cross-modal click events
+  function addClickEvent(node, callback) {
+    // Prevent space(32) from scrolling the page
+    addEvent(node, 'keypress', function (e, target) {
+      if (target.nodeName === "SUMMARY") {
+        if (e.keyCode === 32) {
+          if (e.preventDefault) {
+            e.preventDefault();
+          } else {
+            e.returnValue = false;
+          }
+        }
+      }
+    });
+    // When the key comes up - check if it is enter(13) or space(32)
+    addEvent(node, 'keyup', function (e, target) {
+      if (e.keyCode === 13 || e.keyCode === 32) { callback(e, target); }
+    });
+    addEvent(node, 'mouseup', function (e, target) {
+      callback(e, target);
+    });
+  }
+
+  // Get the nearest ancestor element of a node that matches a given tag name
+  function getAncestor(node, match) {
+    do {
+      if (!node || node.nodeName.toLowerCase() === match) {
+        break;
+      }
+    } while (node = node.parentNode);
+
+    return node;
+  }
+
+  // Create a started flag so we can prevent the initialisation
+  // function firing from both DOMContentLoaded and window.onload
+  var started = false;
+
+  // Initialisation function
+  function addDetailsPolyfill(list) {
+
+    // If this has already happened, just return
+    // else set the flag so it doesn't happen again
+    if (started) {
+      return;
+    }
+    started = true;
+
+    // Get the collection of details elements, but if that's empty
+    // then we don't need to bother with the rest of the scripting
+    if ((list = document.getElementsByTagName('details')).length === 0) {
+      return;
+    }
+
+    // else iterate through them to apply their initial state
+    var n = list.length, i = 0;
+    for (n; i < n; i++) {
+      var details = list[i];
+
+      // Detect native implementations
+      details.__native = typeof(details.open) == 'boolean';
+
+      // Save shortcuts to the inner summary and content elements
+      details.__summary = details.getElementsByTagName('summary').item(0);
+      details.__content = details.getElementsByTagName('div').item(0);
+
+      // If the content doesn't have an ID, assign it one now
+      // which we'll need for the summary's aria-controls assignment
+      if (!details.__content.id) {
+        details.__content.id = 'details-content-' + i;
+      }
+
+      // Add ARIA role="group" to details
+      details.setAttribute('role', 'group');
+
+      // Add role=button to summary
+      details.__summary.setAttribute('role', 'button');
+
+      // Add aria-controls
+      details.__summary.setAttribute('aria-controls', details.__content.id);
+
+      // Set tabindex so the summary is keyboard accessible
+      // details.__summary.setAttribute('tabindex', 0);
+      // http://www.saliences.com/browserBugs/tabIndex.html
+      details.__summary.tabIndex = 0;
+
+      // Detect initial open/closed state
+
+      // Native support - has 'open' attribute
+      if (details.open === true) {
+        details.__summary.setAttribute('aria-expanded', 'true');
+        details.__content.setAttribute('aria-hidden', 'false');
+        details.__content.style.display = 'block';
+      }
+
+      // Native support - doesn't have 'open' attribute
+      if (details.open === false) {
+        details.__summary.setAttribute('aria-expanded', 'false');
+        details.__content.setAttribute('aria-hidden', 'true');
+        details.__content.style.display = 'none';
+      }
+
+      // If this is not a native implementation
+      if (!details.__native) {
+
+        // Add an arrow
+        var twisty = document.createElement('i');
+
+        // Check for the 'open' attribute
+        // If open exists, but isn't supported it won't have a value
+        if (details.getAttribute('open') === "") {
+          details.__summary.setAttribute('aria-expanded', 'true');
+          details.__content.setAttribute('aria-hidden', 'false');
+        }
+
+        // If open doesn't exist - it will be null or undefined
+        if (details.getAttribute('open') == null || details.getAttribute('open') == "undefined" ) {
+          details.__summary.setAttribute('aria-expanded', 'false');
+          details.__content.setAttribute('aria-hidden', 'true');
+          details.__content.style.display = 'none';
+        }
+
+      }
+
+      // Create a circular reference from the summary back to its
+      // parent details element, for convenience in the click handler
+      details.__summary.__details = details;
+
+      // If this is not a native implementation, create an arrow
+      // inside the summary
+      if (!details.__native) {
+
+        var twisty = document.createElement('i');
+
+        if (details.getAttribute('open') === "") {
+          twisty.className = 'arrow arrow-open';
+          twisty.appendChild(document.createTextNode('\u25bc'));
+        } else {
+          twisty.className = 'arrow arrow-closed';
+          twisty.appendChild(document.createTextNode('\u25ba'));
+        }
+
+        details.__summary.__twisty = details.__summary.insertBefore(twisty, details.__summary.firstChild);
+        details.__summary.__twisty.setAttribute('aria-hidden', 'true');
+
+      }
+    }
+
+    // Define a statechange function that updates aria-expanded and style.display
+    // Also update the arrow position
+    function statechange(summary) {
+
+      var expanded = summary.__details.__summary.getAttribute('aria-expanded') == 'true';
+      var hidden = summary.__details.__content.getAttribute('aria-hidden') == 'true';
+
+      summary.__details.__summary.setAttribute('aria-expanded', (expanded ? 'false' : 'true'));
+      summary.__details.__content.setAttribute('aria-hidden', (hidden ? 'false' : 'true'));
+      summary.__details.__content.style.display = (expanded ? 'none' : 'block');
+
+      if (summary.__twisty) {
+        summary.__twisty.firstChild.nodeValue = (expanded ? '\u25ba' : '\u25bc');
+        summary.__twisty.setAttribute('class', (expanded ? 'arrow arrow-closed' : 'arrow arrow-open'));
+      }
+
+      return true;
+    }
+
+    // Bind a click event to handle summary elements
+    addClickEvent(document, function(e, summary) {
+      if (!(summary = getAncestor(summary, 'summary'))) {
+        return true;
+      }
+      return statechange(summary);
+    });
+  }
+
+  // Bind two load events for modern and older browsers
+  // If the first one fires it will set a flag to block the second one
+  // but if it's not supported then the second one will fire
+  addEvent(document, 'DOMContentLoaded', addDetailsPolyfill);
+  addEvent(window, 'load', addDetailsPolyfill);
+
+})();
+
 /*!
  * jQuery JavaScript Library v1.11.3
  * http://jquery.com/
@@ -10350,213 +10599,117 @@ return jQuery;
 
 }));
 
-// <details> polyfill
-// http://caniuse.com/#feat=details
-
-// FF Support for HTML5's <details> and <summary>
-// https://bugzilla.mozilla.org/show_bug.cgi?id=591737
-
-// http://www.sitepoint.com/fixing-the-details-element/
-
 (function () {
+  "use strict";
+  var root = this,
+      $ = root.jQuery;
 
-  // Add event construct for modern browsers or IE
-  // which fires the callback with a pre-converted target reference
-  function addEvent(node, type, callback) {
-    if (node.addEventListener) {
-      node.addEventListener(type, function (e) {
-        callback(e, e.target);
-      }, false);
-    } else if (node.attachEvent) {
-      node.attachEvent('on' + type, function (e) {
-        callback(e, e.srcElement);
-      });
+  if (typeof GOVUK === 'undefined') { root.GOVUK = {}; }
+
+  var SelectionButtons = function (elmsOrSelector, opts) {
+    var $elms;
+
+    this.selectedClass = 'selected';
+    this.focusedClass = 'focused';
+    if (opts !== undefined) {
+      $.each(opts, function (optionName, optionObj) {
+        this[optionName] = optionObj;
+      }.bind(this));
     }
-  }
-
-  // Handle cross-modal click events
-  function addClickEvent(node, callback) {
-    // Prevent space(32) from scrolling the page
-    addEvent(node, 'keypress', function (e, target) {
-      if (target.nodeName === "SUMMARY") {
-        if (e.keyCode === 32) {
-          if (e.preventDefault) {
-            e.preventDefault();
-          } else {
-            e.returnValue = false;
-          }
-        }
-      }
-    });
-    // When the key comes up - check if it is enter(13) or space(32)
-    addEvent(node, 'keyup', function (e, target) {
-      if (e.keyCode === 13 || e.keyCode === 32) { callback(e, target); }
-    });
-    addEvent(node, 'mouseup', function (e, target) {
-      callback(e, target);
-    });
-  }
-
-  // Get the nearest ancestor element of a node that matches a given tag name
-  function getAncestor(node, match) {
-    do {
-      if (!node || node.nodeName.toLowerCase() === match) {
-        break;
-      }
-    } while (node = node.parentNode);
-
-    return node;
-  }
-
-  // Create a started flag so we can prevent the initialisation
-  // function firing from both DOMContentLoaded and window.onload
-  var started = false;
-
-  // Initialisation function
-  function addDetailsPolyfill(list) {
-
-    // If this has already happened, just return
-    // else set the flag so it doesn't happen again
-    if (started) {
-      return;
+    if (typeof elmsOrSelector === 'string') {
+      $elms = $(elmsOrSelector);
+      this.selector = elmsOrSelector;
+      this.setInitialState($(this.selector));
+    } else {
+      this.$elms = elmsOrSelector;
+      this.setInitialState(this.$elms);
     }
-    started = true;
-
-    // Get the collection of details elements, but if that's empty
-    // then we don't need to bother with the rest of the scripting
-    if ((list = document.getElementsByTagName('details')).length === 0) {
-      return;
+    this.addEvents();
+  };
+  SelectionButtons.prototype.addEvents = function () {
+    if (typeof this.$elms !== 'undefined') {
+      this.addElementLevelEvents();
+    } else {
+      this.addDocumentLevelEvents();
     }
+  };
+  SelectionButtons.prototype.setInitialState = function ($elms) {
+    $elms.each(function (idx, elm) {
+      var $elm = $(elm);
 
-    // else iterate through them to apply their initial state
-    var n = list.length, i = 0;
-    for (n; i < n; i++) {
-      var details = list[i];
-
-      // Detect native implementations
-      details.__native = typeof(details.open) == 'boolean';
-
-      // Save shortcuts to the inner summary and content elements
-      details.__summary = details.getElementsByTagName('summary').item(0);
-      details.__content = details.getElementsByTagName('div').item(0);
-
-      // If the content doesn't have an ID, assign it one now
-      // which we'll need for the summary's aria-controls assignment
-      if (!details.__content.id) {
-        details.__content.id = 'details-content-' + i;
+      if ($elm.is(':checked')) {
+        this.markSelected($elm);
       }
+    }.bind(this));
+  };
+  SelectionButtons.prototype.markFocused = function ($elm, state) {
+    if (state === 'focused') {
+      $elm.parent('label').addClass(this.focusedClass);
+    } else {
+      $elm.parent('label').removeClass(this.focusedClass);
+    }
+  };
+  SelectionButtons.prototype.markSelected = function ($elm) {
+    var radioName;
 
-      // Add ARIA role="group" to details
-      details.setAttribute('role', 'group');
-
-      // Add role=button to summary
-      details.__summary.setAttribute('role', 'button');
-
-      // Add aria-controls
-      details.__summary.setAttribute('aria-controls', details.__content.id);
-
-      // Set tabindex so the summary is keyboard accessible
-      // details.__summary.setAttribute('tabindex', 0);
-      // http://www.saliences.com/browserBugs/tabIndex.html
-      details.__summary.tabIndex = 0;
-
-      // Detect initial open/closed state
-
-      // Native support - has 'open' attribute
-      if (details.open === true) {
-        details.__summary.setAttribute('aria-expanded', 'true');
-        details.__content.setAttribute('aria-hidden', 'false');
-        details.__content.style.display = 'block';
-      }
-
-      // Native support - doesn't have 'open' attribute
-      if (details.open === false) {
-        details.__summary.setAttribute('aria-expanded', 'false');
-        details.__content.setAttribute('aria-hidden', 'true');
-        details.__content.style.display = 'none';
-      }
-
-      // If this is not a native implementation
-      if (!details.__native) {
-
-        // Add an arrow
-        var twisty = document.createElement('i');
-
-        // Check for the 'open' attribute
-        // If open exists, but isn't supported it won't have a value
-        if (details.getAttribute('open') === "") {
-          details.__summary.setAttribute('aria-expanded', 'true');
-          details.__content.setAttribute('aria-hidden', 'false');
-        }
-
-        // If open doesn't exist - it will be null or undefined
-        if (details.getAttribute('open') == null || details.getAttribute('open') == "undefined" ) {
-          details.__summary.setAttribute('aria-expanded', 'false');
-          details.__content.setAttribute('aria-hidden', 'true');
-          details.__content.style.display = 'none';
-        }
-
-      }
-
-      // Create a circular reference from the summary back to its
-      // parent details element, for convenience in the click handler
-      details.__summary.__details = details;
-
-      // If this is not a native implementation, create an arrow
-      // inside the summary
-      if (!details.__native) {
-
-        var twisty = document.createElement('i');
-
-        if (details.getAttribute('open') === "") {
-          twisty.className = 'arrow arrow-open';
-          twisty.appendChild(document.createTextNode('\u25bc'));
-        } else {
-          twisty.className = 'arrow arrow-closed';
-          twisty.appendChild(document.createTextNode('\u25ba'));
-        }
-
-        details.__summary.__twisty = details.__summary.insertBefore(twisty, details.__summary.firstChild);
-        details.__summary.__twisty.setAttribute('aria-hidden', 'true');
-
+    if ($elm.attr('type') === 'radio') {
+      radioName = $elm.attr('name');
+      $($elm[0].form).find('input[name="' + radioName + '"]')
+        .parent('label')
+        .removeClass(this.selectedClass);
+      $elm.parent('label').addClass(this.selectedClass);
+    } else { // checkbox
+      if ($elm.is(':checked')) {
+        $elm.parent('label').addClass(this.selectedClass);
+      } else {
+        $elm.parent('label').removeClass(this.selectedClass);
       }
     }
+  };
+  SelectionButtons.prototype.addElementLevelEvents = function () {
+    this.clickHandler = this.getClickHandler();
+    this.focusHandler = this.getFocusHandler({ 'level' : 'element' });
 
-    // Define a statechange function that updates aria-expanded and style.display
-    // Also update the arrow position
-    function statechange(summary) {
+    this.$elms
+      .on('click', this.clickHandler)
+      .on('focus blur', this.focusHandler);
+  };
+  SelectionButtons.prototype.addDocumentLevelEvents = function () {
+    this.clickHandler = this.getClickHandler();
+    this.focusHandler = this.getFocusHandler({ 'level' : 'document' });
 
-      var expanded = summary.__details.__summary.getAttribute('aria-expanded') == 'true';
-      var hidden = summary.__details.__content.getAttribute('aria-hidden') == 'true';
+    $(document)
+      .on('click', this.selector, this.clickHandler)
+      .on('focus blur', this.selector, this.focusHandler);
+  };
+  SelectionButtons.prototype.getClickHandler = function () {
+    return function (e) {
+      this.markSelected($(e.target));
+    }.bind(this);
+  };
+  SelectionButtons.prototype.getFocusHandler = function (opts) {
+    var focusEvent = (opts.level === 'document') ? 'focusin' : 'focus';
 
-      summary.__details.__summary.setAttribute('aria-expanded', (expanded ? 'false' : 'true'));
-      summary.__details.__content.setAttribute('aria-hidden', (hidden ? 'false' : 'true'));
-      summary.__details.__content.style.display = (expanded ? 'none' : 'block');
+    return function (e) {
+      var state = (e.type === focusEvent) ? 'focused' : 'blurred';
 
-      if (summary.__twisty) {
-        summary.__twisty.firstChild.nodeValue = (expanded ? '\u25ba' : '\u25bc');
-        summary.__twisty.setAttribute('class', (expanded ? 'arrow arrow-closed' : 'arrow arrow-open'));
-      }
-
-      return true;
+      this.markFocused($(e.target), state);
+    }.bind(this);
+  };
+  SelectionButtons.prototype.destroy = function () {
+    if (typeof this.selector !== 'undefined') {
+      $(document)
+        .off('click', this.selector, this.clickHandler)
+        .off('focus blur', this.selector, this.focusHandler);
+    } else {
+      this.$elms
+        .off('click', this.clickHandler)
+        .off('focus blur', this.focusHandler);
     }
+  };
 
-    // Bind a click event to handle summary elements
-    addClickEvent(document, function(e, summary) {
-      if (!(summary = getAncestor(summary, 'summary'))) {
-        return true;
-      }
-      return statechange(summary);
-    });
-  }
-
-  // Bind two load events for modern and older browsers
-  // If the first one fires it will set a flag to block the second one
-  // but if it's not supported then the second one will fire
-  addEvent(document, 'DOMContentLoaded', addDetailsPolyfill);
-  addEvent(window, 'load', addDetailsPolyfill);
-
-})();
+  root.GOVUK.SelectionButtons = SelectionButtons;
+}).call(this);
 
 $(function() {
 
