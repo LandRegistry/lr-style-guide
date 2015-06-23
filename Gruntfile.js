@@ -36,7 +36,7 @@ module.exports = function(grunt) {
           'node_modules/govuk_frontend_toolkit/javascripts/govuk/selection-buttons.js',
           'lr-styleguide/js/components/buttons-actions.js',
           'lr-styleguide/js/components/case-list.js',
-          'lr-styleguide/js/components/init.js'
+          'lr-styleguide/js/components/inits.js'
         ],
         dest: 'lr-styleguide/js/styleguide.js'
       },
