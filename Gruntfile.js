@@ -4,25 +4,40 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     // Clean
-    clean: ['lr-styleguide/css/*.css', 'lr-styleguide/js/*.js'],
+    clean: ['lr-styleguide/css/*.css', 'lr-styleguide/js/lr-styleguide.js'],
 
     // Builds Sass
     sass: {
       dist: {
         options: {
-          style: 'expanded'
-          /*includePaths: [
-            'govuk_modules/govuk_frontend_toolkit/stylesheets'
-          ],*/
+          style: 'expanded',
+          loadPath: [
+            'node_modules/govuk_frontend_toolkit/stylesheets'
+          ],
+          sourcemap: "none"
         },
         files: [{
-          expand: false,
+          expand: true,
           cwd: "lr-styleguide/sass",
           src: ["*.scss"],
-          dest: "lr-styleguide/css/",
+          dest: "lr-styleguide/css",
           ext: ".css"
         }]
       }
+    },
+
+    // Concatenate JS files
+    concat: {
+      dist: {
+        src: [
+          'lr-styleguide/js/vendor/jquery/jquery-1.11.3.js',
+          'lr-styleguide/js/vendor/polyfills/details.polyfill.js',
+          'lr-styleguide/js/components/buttons-actions.js',
+          'lr-styleguide/js/components/case-list.js',
+          'lr-styleguide/js/components/init.js'
+        ],
+        dest: 'lr-styleguide/js/lr-styleguide.js'
+      },
     },
 
   });
@@ -39,6 +54,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', [
     'clean',
+    'concat',
     'sass'
   ]);
 
