@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     // Clean
-    clean: ['lr-styleguide/css/*.css', 'lr-styleguide/js/lr-styleguide.js'],
+    clean: ['lr-styleguide/css/*.css', 'lr-styleguide/js/styleguide.js'],
 
     // Builds Sass
     sass: {
