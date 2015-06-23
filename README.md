@@ -38,13 +38,13 @@ The following code in your ```<head>``` will give you the styles:
 
 Then, just before your closing ```</body>``` tag, add the following:
 ```
-<script type="text/javascript" src="/static/lr-styleguide/js/styleguide-components.js"></script>
+<script type="text/javascript" src="/static/lr-styleguide/js/styleguide.js"></script>
 ```
-*Note* that ```styleguide-components.js``` includes:
+Note that ```styleguide.js``` includes:
 
 * jquery 1.11.3
 * details tag polyfill
-* selection-buttons.js from the GOV.UK Frontend Toolkit
+* selection-buttons.js and bind.js polyfill from the GOV.UK Frontend Toolkit
 
 
 ### More complex consumption
@@ -55,8 +55,10 @@ TODO: Thinking about the styleguide as a submodule?
 
 ##### SASS
 
-Make sure you've added the following to your scss import paths: ``` static/lr-styleguide/sass ```
-You also need to make sure you've set up an import path to GOV.UK Frontend Toolkit stylesheets. For example: ``` static/govuk_frontend_toolkit/stylesheets ```
+Make sure you've added the following to your scss load paths: ``` static/lr-styleguide/sass ```
+
+You also need to make sure you've set up a load path to GOV.UK Frontend Toolkit stylesheets - which
+ you will have installed seperately. For example: ``` static/govuk_frontend_toolkit/stylesheets ```
 
 Within ``` static/lr-styleguide/sass ``` are 4 stylesheets:
 
