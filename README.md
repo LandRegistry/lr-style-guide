@@ -1,14 +1,13 @@
 # Land Registry style guide
 
 Derived from GOV.UK Elements, this style guide aims to produce consumable static assets
-along with a demo website providing html snippets.
+ for public facing applications.
 
 It has a dependency on the GOV.UK Frontend Toolkit
 
 ## How can my app consume this style guide?
 
-Within ```/app/static/``` you’ll find the ```lr-styleguide``` directory.
-This is what you’re aiming to consume.
+This is what you’re aiming to consume the ```lr-styleguide``` directory.
 
 ### Simple consumption
 
@@ -16,17 +15,16 @@ If you have no need to compile sass / js assets, and want to keep it very simple
 simply pop the following into ```/static/```:
 
 ```
-/static
-    /lr-styleguide
-        /css
-            styleguide-ie6.css
-            styleguide-ie7.css
-            styleguide-ie8.css
-            styleguide.css
-        /images
-            * all files
-        /js
-            styleguide-components.js
+/lr-styleguide
+    /css
+        styleguide-ie6.css
+        styleguide-ie7.css
+        styleguide-ie8.css
+        styleguide.css
+    /images
+        * all files
+    /js
+        styleguide-components.js
 ```
 
 The following code in your ```<head>``` will give you the styles:
@@ -71,7 +69,7 @@ These are the files you need to output to the frontend as css (see simple method
 
 ##### Javascript
 
-Here’s an example bundle for js output:
+Here’s an example bundle for concatenated and minified js output:
 
 ```
 js = Bundle('govuk_frontend_toolkit/javascripts/vendor/polyfills/bind.js',
@@ -85,21 +83,12 @@ js = Bundle('govuk_frontend_toolkit/javascripts/vendor/polyfills/bind.js',
 assets.register('styleguide_js', js)
 ```
 
-See ```/app/server.py``` in this repo for an example.
-
 
 ## Working on this style guide
 
 ### Getting started
 
-The style guide itself is a Flask application, including a Flask Assets workflow.
+The style guide itself has a Node / Grunt workflow to produce assets.
 
 Clone this repo: ``` git clone git@github.com:LandRegistry/lr-style-guide.git ```
-
-Set up a Python virtual environment and activate it.
-
-Next install requirements: ``` pip install -r requirements.txt ```
-
-Then ``` python app/server.py ``` should get you running on http://localhost:5000
-
 
