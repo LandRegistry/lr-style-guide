@@ -42,11 +42,27 @@ module.exports = function(grunt) {
       },
     },
 
+    // Copies templates and assets from external modules and dirs
+    copy: {
+      main: {
+        options: {
+          timestamp: true
+        },
+        files: [{
+          expand: true,
+          cwd: 'node_modules/govuk_frontend_toolkit/images',
+          src: ['**/*'],
+          dest: 'lr-styleguide/images/'
+        }]
+      },
+    },
+
   });
 
   [
     'grunt-contrib-clean',
     'grunt-contrib-concat',
+    'grunt-contrib-copy',
     'grunt-contrib-sass',
     'grunt-contrib-uglify',
     'grunt-contrib-watch'
@@ -56,6 +72,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', [
     'clean',
+    'copy',
     'concat',
     'sass'
   ]);
