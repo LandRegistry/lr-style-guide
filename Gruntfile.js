@@ -36,7 +36,7 @@ module.exports = function(grunt) {
           'lr-styleguide/js/components/case-list.js',
           'lr-styleguide/js/components/init.js'
         ],
-        dest: 'lr-styleguide/js/lr-styleguide.js'
+        dest: 'lr-styleguide/js/styleguide.js'
       },
     },
 
