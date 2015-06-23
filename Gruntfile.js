@@ -10,7 +10,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         options: {
-          style: 'expanded',
+          style: 'compressed',
           loadPath: [
             'node_modules/govuk_frontend_toolkit/stylesheets'
           ],
@@ -40,6 +40,14 @@ module.exports = function(grunt) {
         ],
         dest: 'lr-styleguide/js/styleguide.js'
       },
+    },
+
+    uglify: {
+      my_target: {
+        files: {
+          'lr-styleguide/js/styleguide.min.js': ['lr-styleguide/js/styleguide.js']
+        }
+      }
     },
 
     // Copies templates and assets from external modules and dirs
@@ -74,7 +82,8 @@ module.exports = function(grunt) {
     'clean',
     'copy',
     'concat',
-    'sass'
+    'sass',
+    'uglify'
   ]);
 
 };
