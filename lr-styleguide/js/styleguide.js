@@ -10731,10 +10731,15 @@ $(function() {
   $('.case-list').on('click', '.summary', function(e) {
     e.preventDefault();
     var $el = $(this).next();
-    var hidden = ($el.attr('aria-hidden') ? 'false' : 'true');
+    var ariaVal = $el.attr('aria-hidden');
+    if (ariaVal == 'true') {
+      ariaVal = 'false';
+    } else {
+      ariaVal = 'true';
+    }
     $el
       .toggleClass('js-hidden')
-      .attr('aria-hidden', hidden);
+      .attr('aria-hidden', ariaVal);
   });
   
 });
