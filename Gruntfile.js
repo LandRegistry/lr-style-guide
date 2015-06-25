@@ -34,6 +34,8 @@ module.exports = function(grunt) {
           'lr-styleguide/js/vendor/polyfills/details.polyfill.js',
           'lr-styleguide/js/vendor/jquery/jquery-1.11.3.js',
           'node_modules/govuk_frontend_toolkit/javascripts/govuk/selection-buttons.js',
+          'node_modules/govuk_frontend_toolkit/javascripts/govuk/stick-at-top-when-scrolling.js',
+          'node_modules/govuk_frontend_toolkit/javascripts/govuk/stop-scrolling-at-footer.js',
           'lr-styleguide/js/components/buttons-actions.js',
           'lr-styleguide/js/components/case-list.js',
           'lr-styleguide/js/components/inits.js'
