@@ -10972,4 +10972,9 @@ $(function() {
   // Details/summary polyfill
   // See /js/vendor/polyfills/details.polyfill.js
 
+  if ($('.js-stick-at-top-when-scrolling').length > 0) {
+    GOVUK.stickAtTopWhenScrolling.init();
+    GOVUK.stopScrollingAtFooter.addEl($('.js-stick-at-top-when-scrolling'), $('.js-stick-at-top-when-scrolling').height());
+  }
+
 });
